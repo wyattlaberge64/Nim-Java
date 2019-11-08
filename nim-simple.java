@@ -31,16 +31,27 @@ public class NimSimple {
 				next = nextSwitch(next);
 			}
 		}
+		declareWinner();
+		playAgain();
 	}
 	
 	/* Functions */
 	
 	public static int userTurn() {
-		System.out.print("Enter a number between 1-3: ");
-		Scanner manualInput = new Scanner(System.in);
-		turn = manualInput.nextInt();
-		if(turn == 1 || turn == 2 || turn == 3) {
-			return turn;
+		boolean goodNumber = false;
+		turn = 0;
+		while(goodNumber == false) {
+			System.out.print("Enter a number between 1-3: ");
+			Scanner manualInput = new Scanner(System.in);
+			turn = manualInput.nextInt();
+			if(turn == 1 || turn == 2 || turn == 3) {
+				goodNumber = true;
+				return turn;
+			}
+			else {
+				System.out.println("Number out of range choose anouther number.");
+				return 0;
+			}
 		}
 	}
 	
@@ -62,7 +73,7 @@ public class NimSimple {
 		}
 	}
 	
-	public static int nextSwitch(next) {
+	public static int nextSwitch(int next) {
 		if(next == 0) {
 			return 1;
 		}
@@ -71,7 +82,7 @@ public class NimSimple {
 		}
 	}
 	
-	public static String declareWinner() {
+	public static void declareWinner() {
 		if(next == 0) {
 			System.out.println("You lose!");
 		}
