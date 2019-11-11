@@ -17,22 +17,39 @@ public class NimSimple {
 		turns = 0;
 		next = games%2;
 		while(again == true) {
-			
-			if(next == 0){
-				turn = CPUTurn();
-				count += turn;
-				System.out.println("The count is now "+count+".");
-				next = nextSwitch(next);
+			if(count < 21) {
+				if(next == 0){
+					turns++;
+					turn = CPUTurn();
+					count += turn;
+					System.out.println("The count is now "+count+".");
+					next = nextSwitch(next);
+						
+				}
+				else {
+					turns++;
+					turn = userTurn();
+					count += turn;
+					System.out.println("The count is now "+count+".");
+					next = nextSwitch(next);
+				}
 			}
 			else {
-				turn = userTurn();
-				count += turn;
-				System.out.println("The count is now "+count+".");
-				next = nextSwitch(next);
+				declareWinner();
+				if(playAgain() == true) {
+					again = true;
+					count = 0;
+					turns = 0;
+					games++;
+					next = games%2;
+				}
+				else {
+					again = false;
+					System.out.println("Thanks for playing");
+					break;
+				}
 			}
 		}
-		declareWinner();
-		playAgain();
 	}
 	
 	/* Functions */
@@ -46,18 +63,17 @@ public class NimSimple {
 			turn = manualInput.nextInt();
 			if(turn == 1 || turn == 2 || turn == 3) {
 				goodNumber = true;
-				return turn;
 			}
 			else {
 				System.out.println("Number out of range choose anouther number.");
-				return 0;
 			}
 		}
+		return turn;
 	}
 	
 	public static int CPUTurn(){
 		turn = (int) Math.floor(Math.random()*3)+1;
-		System.out.println("CPU counts "+count+".");
+		System.out.println("CPU counts "+turn+".");
 		return turn;
 	}
 	
