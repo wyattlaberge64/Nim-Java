@@ -20,7 +20,12 @@ public class NimSimple {
 			if(count < 21) {
 				if(next == 0){
 					turns++;
-					turn = CPUTurn();
+					if(count < 20) {
+						turn = CPUTurn();
+					}
+					else {
+						turn = 1;
+					}
 					count += turn;
 					System.out.println("The count is now "+count+".");
 					next = nextSwitch(next);
@@ -72,7 +77,10 @@ public class NimSimple {
 	}
 	
 	public static int CPUTurn(){
-		turn = (int) Math.floor(Math.random()*3)+1;
+		int turn = (int) Math.floor(Math.random()*3)+1;
+		while(turn==1 || count+turn>20) {
+			turn = (int) Math.floor(Math.random()*3)+1;
+		}
 		System.out.println("CPU counts "+turn+".");
 		return turn;
 	}
