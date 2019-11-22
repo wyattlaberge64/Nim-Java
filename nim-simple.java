@@ -1,3 +1,4 @@
+// Nim Simple java By Wyatt Laberge
 // import the scanner utility.
 import java.util.Scanner;
 public class NimSimple {
