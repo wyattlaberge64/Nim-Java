@@ -86,7 +86,10 @@ public class NimSimple {
 	
 	/* Functions */
 	
-	// create the user turn function.
+	/**
+	 * Create the user turn function.
+	 * @return turn
+	 */
 	public static int userTurn() {
 		// Create the boolean variable goodNumber and set it equal to false.
 		boolean goodNumber = false;
@@ -108,11 +111,13 @@ public class NimSimple {
 				System.out.println("Number out of range choose another number.");
 			}
 		}
-		// Have the function return turn.
 		return turn;
 	}
 	
-	// Create the function CPUTurn.
+	/**
+	 * Create the function CPUTurn.
+	 * @return turn
+	 */
 	public static int CPUTurn(){
 		// Create the int variable turn and set it equal to a casted int random number.
 		int turn = (int) Math.floor(Math.random()*3)+1;
@@ -123,11 +128,13 @@ public class NimSimple {
 		}
 		// Have the system show what the CPU counts.
 		System.out.println("CPU counts "+turn+".");
-		// Have the function return turn.
 		return turn;
 	}
 	
-	// Create the boolean function playAgain.
+	/**
+	 * Create the boolean function playAgain.
+	 * @return true or false
+	 */
 	public static boolean playAgain() {
 		// Have the system ask the user if they want to play again.
 		System.out.print("Play again? y = yes: ");
@@ -139,29 +146,28 @@ public class NimSimple {
 			return true;
 		}
 		else {
-			// Have the function return false.
 			return false;
 		}
 	}
 	
 	/** 
-	 * Create an nextSwitch function with an int param next.
+	 * Create an nextSwitch function.
 	 * @param next
-	 * @return
+	 * @return 1 or 0
 	 */
 	public static int nextSwitch(int next) {
 		// Make an if statement that runs if the next variable is equal to 0.
 		if(next == 0) {
-			// Have the function return 1.
 			return 1;
 		}
 		else {
-			// Have the function return 0.
 			return 0;
 		}
 	}
 	
-	// Create an declareWinner function.
+	/**
+	 * Create an declareWinner function.
+	 */
 	public static void declareWinner() {
 		// Make an if statement that runs if the next variable.
 		if(next == 0) {
