@@ -122,8 +122,8 @@ public class NimSimple {
 	public static int CPUTurn(){
 		// Create the int variable turn and set it equal to a casted int random number.
 		int turn = (int) Math.floor(Math.random()*3)+1;
-		// Make a while loop that runs while turn is equal to 1 or the count and turn variables are added to be greater than 20.
-		while(turn==1 || count+turn>20) {
+		// Make a while loop that runs while turn is not equal to 1 and the count and turn variables are added to be greater than 20.
+		while(turn!=1 && count+turn>20) {
 			// Set the turn variable equal to a casted int random number.
 			turn = (int) Math.floor(Math.random()*3)+1;
 		}
