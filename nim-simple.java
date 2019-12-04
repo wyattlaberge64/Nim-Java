@@ -33,10 +33,6 @@ public class NimSimple {
 						// Set the turn variable equal to the CPUTurn() function.
 						turn = CPUTurn();
 					}
-					else {
-						// Set the turn variable equal to 1.
-						turn = 1;
-					}
 					// Make the total of the count variable increase by the turn variable.
 					count += turn;
 					// Have the system show what the count is.
